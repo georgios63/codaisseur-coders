@@ -21,6 +21,7 @@ const HomePage = () => {
               <li>{post.title}</li>
             </ul>
           ))}
+      <button onClick={() => dispatch(fetchPosts)}>Load more</button>
     </div>
   );
 };

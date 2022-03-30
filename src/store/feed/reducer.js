@@ -13,10 +13,9 @@ export default function feedSliceReducer(state = initialState, action) {
     }
 
     case "feed/postsFetched": {
-      console.log("feed action", action);
       return {
         loading: false,
-        posts: [...action.payload],
+        posts: [...state.posts, ...action.payload],
       };
     }
 

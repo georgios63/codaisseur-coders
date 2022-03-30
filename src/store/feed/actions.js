@@ -17,8 +17,10 @@ export function postsFetched(posts) {
 
 export async function fetchPosts(dispatch, getState) {
   dispatch(startLoading());
-  const response = await axios.get(`${API_URL}/posts`);
-  console.log("response", response);
+
+  const offset = getState().feed.posts.length;
+
+  const response = await axios.get(`${API_URL}/posts?offset=${offset}&limit=5`);
 
   const posts = response.data.rows;
   dispatch(postsFetched(posts));
